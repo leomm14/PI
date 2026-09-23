@@ -26,9 +26,6 @@ public class Avaliacao {
     @Column
     private String dataAvaliacao;
 
-    @Column
-    private String status;
-
     // Função para converter o SaveDto em Entidade
     public static Avaliacao toModel(SaveAvaliacaoDto dto) {
         Avaliacao avaliacao = new Avaliacao();
