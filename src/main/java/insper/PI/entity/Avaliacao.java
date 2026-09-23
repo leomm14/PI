@@ -30,7 +30,7 @@ public class Avaliacao {
     public static Avaliacao toModel(SaveAvaliacaoDto dto) {
         Avaliacao avaliacao = new Avaliacao();
         avaliacao.setNome(dto.getNome());
-        avaliacao.setNome(dto.getNome());
+        avaliacao.setConteudo(dto.getConteudo());
         avaliacao.setNota(dto.getNota());
         avaliacao.setDataAvaliacao(dto.getDataAvaliacao());
 
