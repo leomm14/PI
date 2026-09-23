@@ -19,7 +19,8 @@ public class AvaliacaoController {
     private AvaliacaoService avaliacaoService;
 
     @GetMapping("/{id}")
-    public ResponseAvaliacaoDto getUsuario(@PathVariable Long id) {return avaliacaoService.getDTO(id);}
+    public ResponseAvaliacaoDto getUsuario(@PathVariable Long id) {
+        return ResponseAvaliacaoDto.toDto(avaliacaoService.getById(id));}
 
     @GetMapping
     public List<ResponseAvaliacaoDto> getAll() {

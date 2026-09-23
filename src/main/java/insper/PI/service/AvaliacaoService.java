@@ -17,13 +17,9 @@ public class AvaliacaoService {
     @Autowired
     private AvaliacaoRepository avaliacaoRepository;
 
-    public ResponseAvaliacaoDto getDTO(Long id) {
-
-        Avaliacao avaliacao = avaliacaoRepository.findById(id)
+    public Avaliacao getById(Long id) {
+        return avaliacaoRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Avaliação não encontrada"));
-
-        return ResponseAvaliacaoDto.toDto(avaliacao);
-
     }
 
     public List<Avaliacao> listarAvaliacao() {
