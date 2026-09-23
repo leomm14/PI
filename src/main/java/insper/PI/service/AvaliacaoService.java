@@ -50,6 +50,8 @@ public class AvaliacaoService {
         if (!avaliacaoRepository.existsById(id)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Avaliacao não encontrado");
         }
+        Avaliacao avaliacao = getById(id);
         avaliacaoRepository.deleteById(id);
+        notificarObservadores(avaliacao, null);
     }
 }

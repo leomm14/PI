@@ -8,19 +8,15 @@ import org.springframework.stereotype.Component;
 import java.time.Instant;
 
 @Component
-public class CreateLoggerObserver implements AvaliacaoObserver {
+public class DeleteLoggerObserver implements AvaliacaoObserver {
 
     private static final Logger logger = LoggerFactory.getLogger(CreateLoggerObserver.class);
-
     Instant timestamp = Instant.now();
-
     @Override
     public void atualizar(Avaliacao avaliacao, String statusAnterior, String statusNovo) {
         String mensagem = String.format(
-                "CREATED - Avaliacao ID: %d | Status: %s → %s | TimeStamp: %TH",
+                "DELETED - Avaliacao ID: %d, TimeStamp: %TH",
                 avaliacao.getId(),
-                statusAnterior,
-                statusNovo,
                 timestamp.getEpochSecond()
         );
         logger.info(mensagem);
