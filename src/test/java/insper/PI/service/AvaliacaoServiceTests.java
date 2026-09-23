@@ -95,6 +95,16 @@ public class AvaliacaoServiceTests {
         Assertions.assertEquals("23-09-2026", response.getDataAvaliacao());
     }
 
+    @Test
+    public void test_shouldDeleteExistingAvaliacao() {
+        Long id = 1L;
+        Mockito.when(avaliacaoRepository.existsById(id)).thenReturn(true);
+
+        avaliacaoService.deletarAvaliacao(id);
+
+        Mockito.verify(avaliacaoRepository, Mockito.times(1)).deleteById(id);
+    }
+
 
 
 }
