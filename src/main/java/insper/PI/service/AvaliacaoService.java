@@ -3,7 +3,6 @@ package insper.PI.service;
 import insper.PI.dto.ResponseAvaliacaoDto;
 import insper.PI.dto.SaveAvaliacaoDto;
 import insper.PI.entity.Avaliacao;
-import insper.PI.observer.AvaliacaoObserver;
 import insper.PI.repository.AvaliacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
