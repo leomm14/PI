@@ -17,7 +17,7 @@ public class CreateLoggerObserver implements AvaliacaoObserver {
     @Override
     public void atualizar(Avaliacao avaliacao, String statusAnterior, String statusNovo) {
         String mensagem = String.format(
-                "CREATED - Avaliacao ID: %d | Status: %s → %s | TimeStamp: %TH",
+                "CREATE - Avaliacao ID: %d | Status: %s → %s | TimeStamp: %TH",
                 avaliacao.getId(),
                 statusAnterior,
                 statusNovo,
