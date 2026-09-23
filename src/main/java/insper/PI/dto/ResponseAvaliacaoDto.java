@@ -12,13 +12,13 @@ public class ResponseAvaliacaoDto {
     private String dataAvaliacao;
 
     // Função para converter a Entidade no DTO de resposta
-    public static ResponseAvaliacaoDto toDto(Avaliacao item) {
+    public static ResponseAvaliacaoDto toDto(Avaliacao avaliacao) {
         ResponseAvaliacaoDto dto = new ResponseAvaliacaoDto();
-        dto.setId(item.getId());
-        dto.setNome(item.getNome());
-        dto.setConteudo(item.getConteudo());
-        dto.setNota(item.getNota());
-        dto.setDataAvaliacao(item.getDataAvaliacao());
+        dto.setId(avaliacao.getId());
+        dto.setNome(avaliacao.getNome());
+        dto.setConteudo(avaliacao.getConteudo());
+        dto.setNota(avaliacao.getNota());
+        dto.setDataAvaliacao(avaliacao.getDataAvaliacao());
         return dto;
     }
 }

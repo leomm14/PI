@@ -31,12 +31,12 @@ public class Avaliacao {
 
     // Função para converter o SaveDto em Entidade
     public static Avaliacao toModel(SaveAvaliacaoDto dto) {
-        Avaliacao item = new Avaliacao();
-        item.setNome(dto.getNome());
-        item.setNome(dto.getNome());
-        item.setNota(dto.getNota());
-        item.setDataAvaliacao(dto.getDataAvaliacao());
+        Avaliacao avaliacao = new Avaliacao();
+        avaliacao.setNome(dto.getNome());
+        avaliacao.setNome(dto.getNome());
+        avaliacao.setNota(dto.getNota());
+        avaliacao.setDataAvaliacao(dto.getDataAvaliacao());
 
-        return item;
+        return avaliacao;
     }
 }

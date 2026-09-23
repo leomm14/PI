@@ -26,19 +26,19 @@ public class AvaliacaoService {
 
     }
 
-    public List<Avaliacao> listarItens() {
+    public List<Avaliacao> listarAvaliacao() {
         return avaliacaoRepository.findAll();
     }
 
-    public Avaliacao salvarItem(SaveAvaliacaoDto dto) {
+    public Avaliacao salvarAvaliacao(SaveAvaliacaoDto dto) {
         // Usa a tua função toModel para criar a entidade diretamente
         Avaliacao avaliacao = Avaliacao.toModel(dto);
         return avaliacaoRepository.save(avaliacao);
     }
 
-    public void deletarItem(Long id) {
+    public void deletarAvaliacao(Long id) {
         if (!avaliacaoRepository.existsById(id)) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Item não encontrado");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Avaliacao não encontrado");
         }
         avaliacaoRepository.deleteById(id);
     }

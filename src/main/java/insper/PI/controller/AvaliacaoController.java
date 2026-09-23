@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/itens")
+@RequestMapping("/avaliacao")
 public class AvaliacaoController {
 
     @Autowired
@@ -24,7 +24,7 @@ public class AvaliacaoController {
     @GetMapping
     public List<ResponseAvaliacaoDto> getAll() {
         // Uso direto da tua função toDto via Method Reference
-        return avaliacaoService.listarItens().stream()
+        return avaliacaoService.listarAvaliacao().stream()
                 .map(ResponseAvaliacaoDto::toDto)
                 .collect(Collectors.toList());
     }
@@ -32,7 +32,7 @@ public class AvaliacaoController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseAvaliacaoDto create(@RequestBody SaveAvaliacaoDto dto) {
-        Avaliacao avaliacaoSalvo = avaliacaoService.salvarItem(dto);
+        Avaliacao avaliacaoSalvo = avaliacaoService.salvarAvaliacao(dto);
         // Usa a função para devolver logo formatado
         return ResponseAvaliacaoDto.toDto(avaliacaoSalvo);
     }
@@ -40,6 +40,6 @@ public class AvaliacaoController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
-        avaliacaoService.deletarItem(id);
+        avaliacaoService.deletarAvaliacao(id);
     }
 }
