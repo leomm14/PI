@@ -3,6 +3,7 @@ package insper.PI.service;
 import insper.PI.dto.ResponseAvaliacaoDto;
 import insper.PI.dto.SaveAvaliacaoDto;
 import insper.PI.entity.Avaliacao;
+import insper.PI.observer.AvaliacaoObserver;
 import insper.PI.repository.AvaliacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,18 @@ public class AvaliacaoService {
     @Autowired
     private AvaliacaoRepository avaliacaoRepository;
 
+    @Autowired(required = false)
+    private List<AvaliacaoObserver> observers;
+
+
+    public void notificarObservadores(Avaliacao avaliacao, String statusAnterior) {
+        if (observers != null) {
+            for (AvaliacaoObserver observer : observers) {
+                observer.atualizar(avaliacao, statusAnterior, avaliacao.getStatus());
+            }
+        }
+    }
+
     public Avaliacao getById(Long id) {
         return avaliacaoRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Avaliação não encontrada"));
@@ -29,6 +42,7 @@ public class AvaliacaoService {
     public Avaliacao salvarAvaliacao(SaveAvaliacaoDto dto) {
         // Usa a tua função toModel para criar a entidade diretamente
         Avaliacao avaliacao = Avaliacao.toModel(dto);
+        notificarObservadores(avaliacao, null);
         return avaliacaoRepository.save(avaliacao);
     }
 
