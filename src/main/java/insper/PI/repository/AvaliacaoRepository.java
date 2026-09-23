@@ -1,13 +1,13 @@
 package insper.PI.repository;
 
-import insper.PI.entity.Item;
+import insper.PI.entity.Avaliacao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface ItemRepository extends JpaRepository<Item, Long> {
+public interface AvaliacaoRepository extends JpaRepository<Avaliacao, Long> {
     // Método para o filtro opcional
-    List<Item> findByCategoria(String categoria);
+    List<Avaliacao> findByCategoria(String categoria);
 }
